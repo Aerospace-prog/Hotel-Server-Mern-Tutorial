@@ -50,8 +50,12 @@ For delete we will use DELETE method to create a endpoint
 What is a unique identifier in a document in a collection?
 It's_id which is given by mongodb itself, we will use this to find the particular record which we want to delete
 
-Hosting ==>
+Host DB Server==>
 To Host out mongoDb databse on cloud we will use MongoDB Atlas
 
 Dotenv Module ==>
 We will use dotenv to store our sensitive data like password, username etc in a file named .env
+
+Host NodeJS Server ==>
+online public accessible server to make out application run 24*7 
+Ex:- heroku (paid), netlify (complex method), RENDER (recommended)
