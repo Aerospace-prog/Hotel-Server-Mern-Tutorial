@@ -1,0 +1,51 @@
+
+ What are models OR scheme in Mongoose?
+
+    Models are basically the blueprint of the data that we are gonna store in the database.
+    We can preform CRUD operation on the models/schema.
+    For Blueprint we maintain a folder called models
+    Schema is a data structure(types , required, unique values ) of the models.
+
+
+
+Body-parser --> is a middleware library of Express.js
+    It is used to parse and extract the body of incoming HTTP requests.,SO it grabs JSON data and converts in object and stores in req.body
+
+
+Async and await --> are features in JavaScript that make it easier to work with asynchronous code, such as network requests, file system operations, or database queries.
+    Using try and catch block
+    The try block contains the code for creating a new Person document and saving it to the database using await newPerson.save().
+    If an error occurs during any step, it is caught in the catch block, and an error response is sent with a 500 Internal Server Error status.
+
+
+Parameterized API Calls --> Now if someone told us to give a list of people who are only waiters EG:- /person/waiters
+
+Parameterized URL --> localhost:3000/person/:work
+--> work : ["chef","waiter","manager"]
+
+
+Express Route -->
+We have a lots of Endpoints in a single file server.js
+This makes bad experience in code readability as well as code handling Express Router is a way to modularize and organize your route handling code in an Express.js application.
+So let's create a separate file to manage endpoints /person and /menu Express Router is like a traffic cop for your web server
+Express Router helps you organize and manage these pages or endpoints
+in your web application. It's like creating separate folders for different types of tasks.
+Create a folder ROUTES to store all your routes
+
+
+
+Update operation-->
+
+For Updation we need two things o Which record we want to update?
+What exactly we want to update?
+For update we will use PUT method to create a endpoint
+
+Delete operation -->
+
+
+We will Delete our person Record, for that we will create an endpoint from where we are able to delete record
+For Deletion we need one things
+Which record we want to update ?
+For delete we will use DELETE method to create a endpoint
+What is a unique identifier in a document in a collection?
+It's_id which is given by mongodb itself, we will use this to find the particular record which we want to delete
