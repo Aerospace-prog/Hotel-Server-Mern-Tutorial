@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 // Define a schema for the User model
 const personSchema = new mongoose.Schema({
@@ -28,6 +29,40 @@ const personSchema = new mongoose.Schema({
     salary:{
         type:Number,
         required:true
+    },
+    username:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    password:{
+        type:String,
+        required:true
+    }
+})
+
+
+personSchema.pre('save',async function(next){
+
+    const person = this;//This ensures that it will calls pre middleware function whenver document is saved
+
+    //Hash the password only if it has been modified (or is new)
+    if (!person.isModified('password')) {
+        return next();//here teh user not needs hashing as it is already existed user
+    }
+    try{
+        //hash password generation
+        const salt = await bcrypt.genSalt(11);
+
+        //hash password
+        const hasedPassword = await bcrypt.hash(person.password,salt);
+
+        //override the plain password with hashed one
+        person.password = hasedPassword
+
+        next();
+    }catch(error){
+        return next(err);
     }
 })
 

@@ -25,7 +25,7 @@ const menuSchema = new mongoose.Schema({
     num_sales:{
         type:Number,
         default : 0
-    }
+    },
 })
 
 const MenuItem = mongoose.model('MenuItem', menuSchema);

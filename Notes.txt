@@ -24,7 +24,7 @@ Parameterized URL --> localhost:3000/person/:work
 --> work : ["chef","waiter","manager"]
 
 
-Express Route -->
+Express Route ==>
 We have a lots of Endpoints in a single file server.js
 This makes bad experience in code readability as well as code handling Express Router is a way to modularize and organize your route handling code in an Express.js application.
 So let's create a separate file to manage endpoints /person and /menu Express Router is like a traffic cop for your web server
@@ -34,15 +34,12 @@ Create a folder ROUTES to store all your routes
 
 
 
-Update operation-->
-
+Update operation==>
 For Updation we need two things o Which record we want to update?
 What exactly we want to update?
 For update we will use PUT method to create a endpoint
 
-Delete operation -->
-
-
+Delete operation ==>
 We will Delete our person Record, for that we will create an endpoint from where we are able to delete record
 For Deletion we need one things
 Which record we want to update ?
@@ -59,3 +56,28 @@ We will use dotenv to store our sensitive data like password, username etc in a 
 Host NodeJS Server ==>
 online public accessible server to make out application run 24*7 
 Ex:- heroku (paid), netlify (complex method), RENDER (recommended)
+
+Middleware ==>
+Imagine you're at a restaurant, and you've placed an order for your favorite dish. Now, before that dish reaches your table, it goes through several stages in the kitchen. Each stage involves different tasks, like chopping vegetables, cooking, and adding spices. Middleware is a bit like these stages in the kitchen-it's something that happens in between your request and the final response in a web application.
+In summary, middleware is like a series of tasks that happen behind the scenes in a web application. It's a way to add extra functionality to your application's
+request-response cycle such as logging, authentication checks, or modifying request data, before it reaches its final destination.
+
+
+
+In general, authentication is applied before authorization in the security process. Here's the typical sequence:
+1. Authentication:
+o The first step is to verify the identity of the user or system entity attempting to access a resource or perform an action. This involves checking credentials such as usernames and passwords or using other authentication methods like tokens, API keys, or certificates.
+2. Authorization:
+o Once the identity is verified through authentication, the system moves on to authorization. Authorization determines what actions or resources the authenticated user or entity is allowed to access based on their permissions, roles, or other access control mechanisms.
+
+
+Passport.js ==> is a popular authentication middleware for Node.js. It provides a simple and flexible way to implement authentication in your application. Passport.js gives pre-built strategies for different authentication methods, such as username , password, OAuth, OpenID, and more.AND Passport LocalStategy is a part of passport.js which is specifically designed for username and password authentication.
+INSTALL --> `npm install passport passport-local`
+
+
+
+Store Plain Password ==>
+Storing plain passwords is not a secure practice To enhance security, it's highly recommended to hash and salt passwords before storing them.We can use bcrypt
+
+simple pass + HASHING + SALT == secure password(stored in DB)
+
