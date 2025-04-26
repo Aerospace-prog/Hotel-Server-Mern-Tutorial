@@ -30,7 +30,7 @@ const localAuthMiddleware = passport.authenticate('local', {session : false});
 
 
 
-app.get('/',localAuthMiddleware,(req,res)=>{
+app.get('/',(req,res)=>{
     res.send('Welcome to My Hotel Server :)');
 })
 
@@ -39,8 +39,8 @@ app.get('/',localAuthMiddleware,(req,res)=>{
 const personRoutes = require('./routes/personRoutes');
 const menuRoutes = require('./routes/menuRoutes')
 //Use the routers
-app.use('/person',personRoutes);
-app.use('/menu',localAuthMiddleware,menuRoutes)
+app.use('/person',localAuthMiddleware,personRoutes);
+app.use('/menu',menuRoutes)
 
 
 

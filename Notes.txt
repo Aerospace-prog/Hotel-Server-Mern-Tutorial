@@ -81,3 +81,51 @@ Storing plain passwords is not a secure practice To enhance security, it's highl
 
 simple pass + HASHING + SALT == secure password(stored in DB)
 
+
+Verifying a password==>
+When you later want to verify a user's entered password during login, you use bcrypt.compare. This function internally extracts the salt from the stored hashed password and uses it to hash the entered password for comparison.
+
+`const isMatch = await bcrypt.compare('enteredPass',storedHasPass);`
+
+The compare function automatically extracts the salt from storedHashed Password and uses it to hash the entered password. It then compares the resulting hash with the stored hash. If they match, it indicates that the entered password is correct.
+
+
+Sessions & Cookies ==>
+Sessions are a way to maintain user state and authenticate users in web applications. 
+1. User Authentication
+
+When you visit a website or use a web application, you must log in to access certain features or personalized content. Sessions or tokens are used to authenticate users, proving that they are who they claim to be. This ensures that only authorized users can access restricted areas or perform certain actions.
+
+2. Maintaining User State
+
+Web applications often need to remember user information as they navigate through different pages or interact with the app. Sessions or tokens help maintain this user state. For example, if you add items to your shopping cart on an e-commerce website, the website needs to remember those items as you browse other pages. Sessions or tokens store this information so that it can be accessed later.
+
+3. Security
+
+Sessions and tokens play a crucial role in securing web applications. They help prevent unauthorized access by verifying the identity of users before granting them access to sensitive data or functionality. Additionally, they can be used to protect against common security threats such as session hijacking or cross-site request forgery (CSRF) attacks.
+
+
+Sessions based Authentication==>
+• A session is a way or a small file, most likely in JSON format, that stores
+information about the user, such as a unique ID, time of login expirations, and so on. It is generated and stored on the server so that the server can keep track of the user requests.
+Working
+1. The user sends a login request to the server.
+2. The server authenticates the login request, sends a session to the database, and returns a cookie containing the session ID to the user.
+3. Now, the user sends new requests (with a cookie).
+4. The server checks in the database for the ID found in the cookie, if the ID is found it sends the requested pages to the user.
+
+Cookies -->
+A cookie is a small peice of data that a website stores on a users computer or devce.Cookies are commoly used to remember information about user browsing activity.
+
+Types ->
+a. Session cookies - these cookies are stored temporary and deleted when you close browser
+b. persistent cookies - these cookies stored on your device for a specific duration
+
+
+
+Tokens --> refer to a broad category of authentication credentials, whereas JWT is a specific format or implementation of tokens.
+JWT (JSON Web Token)
+• Definition: JWT is a specific type of token format defined by the JSON Web Token standard (RFC 7519). It is a compact and self-contained means of transmitting information between parties as a JSON object.
+• Structure: JWTS consist of three parts: header, payload, and signature. They are typically encoded and signed using cryptographic algorithms.
+⚫ Usage: JWTS are commonly used for authentication and authorization in web applications and APIs. They can store user claims, such as user ID, roles, permissions, and custom data, in a secure and portable format.
+⚫ Statelessness: JWTS are stateless, meaning the server does not need to store session information. This makes them suitable for distributed architectures and scalable systems.

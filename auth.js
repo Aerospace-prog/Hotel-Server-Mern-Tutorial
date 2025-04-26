@@ -15,7 +15,7 @@ passport.use(new LocalStategy(async(USERNAME,PASSWORD,done)=>{
             return done(null,false,{message : 'Incorrect Username'});
         }
 
-        const isPasswordMatch = user.comparePassword(PASSWORD);
+        const isPasswordMatch = await user.comparePassword(PASSWORD);
 
         if(isPasswordMatch){
             return done(null,user);

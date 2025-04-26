@@ -63,7 +63,7 @@ router.get('/:id' , async(req,res)=>{
 
 
 //Parameterized API endpoint
-router.get('/:workType',async (req,res)=>{
+router.get('/work/:workType',async (req,res)=>{
     try{
         const workType = req.params.workType; // Extract the work type from URL parameter
 
